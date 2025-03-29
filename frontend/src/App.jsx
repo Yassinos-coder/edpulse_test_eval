@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import MainPage from './Components/MainPage/MainPage'
+import LandingPage from './Components/LandingPage/LandingPage'
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<MainPage />} />
+          <Route index element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </>

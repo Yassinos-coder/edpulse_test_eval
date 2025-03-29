@@ -26,7 +26,6 @@ app.post('/trigger-pabbly', async (req, res) => {
         lastname: req.body.lastname,
         email: req.body.email,
         phonenumber: req.body.phonenumber,
-        adresse: req.body.adresse,
     };
 
     try {
@@ -52,7 +51,6 @@ app.post('/SaveUncompletedFormData', async (req, res) => {
         lastname: req.body.lastname,
         email: req.body.email,
         phonenumber: req.body.phonenumber,
-        adresse: req.body.adresse,
         uncomplete: 'uncomplete'
     };
 

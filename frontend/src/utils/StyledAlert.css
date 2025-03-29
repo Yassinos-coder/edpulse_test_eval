@@ -1,0 +1,32 @@
+/* Ensure the alert is at the top and centered */
+.alert {
+    position: fixed; /* Change from absolute to fixed to ensure it stays at the top */
+    top: 10px;
+    width: 20%; /* Adjusted width to be more visible */
+    text-align: center;
+    background-color: #2D89FF;
+    color: white;
+    padding: 10px 0; /* Add padding for better appearance */
+    font-size: 17px;
+    opacity: 0; /* Initially hide the alert */
+    transform: translateY(-100%); /* Start off-screen */
+    z-index: 9999; /* Make sure it's on top of other content */
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease-out;
+    border-radius: 15px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%); /* Center the alert horizontally */
+}
+
+/* Show alert with the 'dropIn' animation */
+.alert.dropIn {
+    opacity: 1; /* Fade in */
+    transform: translateX(-50%) translateY(0); /* Move into view */
+}
+
+/* Optional: Add a fade-out animation when the alert disappears */
+.alert.hide {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100%); /* Move off-screen */
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease-out;
+}
