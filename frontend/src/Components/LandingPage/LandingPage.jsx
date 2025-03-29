@@ -23,7 +23,7 @@ function LandingPage() {
             const isFormIncomplete = Object.values(newForm).some(value => value === '');
 
             if (isAnyFieldFilled && isFormIncomplete) {
-                axios.post('http://172.232.54.120/SaveUncompletedFormData', newForm);
+                axios.post('https://api.yassinoscoder.com/SaveUncompletedFormData', newForm);
                 event.preventDefault();
                 event.returnValue = '';
             }
@@ -44,7 +44,7 @@ function LandingPage() {
 
     const SendFormData = async () => {
         try {
-            axios.post('http://172.232.54.120/trigger-pabbly', newForm).then((res) => {
+            axios.post('https://api.yassinoscoder.com/trigger-pabbly', newForm).then((res) => {
                 switch (res.data.response.status) {
                     case 'success':
                         setSubmitResponse('success');
