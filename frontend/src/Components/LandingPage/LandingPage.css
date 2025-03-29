@@ -43,12 +43,12 @@ ul {
     align-items: center;
 }
 
-ul > li > button {
+ul>li>button {
     border: none;
     background-color: #f6f6f5;
 }
 
-ul > li > button:hover {
+ul>li>button:hover {
     cursor: pointer;
     transform: scale(1.2);
 }
@@ -93,7 +93,7 @@ a:hover {
 #headerContainerMiddle-leftSide>p {
     font-size: 18px;
     word-spacing: 3px;
-    line-height: 35px;
+    line-height: 30px;
 }
 
 #headerContainerMiddle-leftSide>button {
@@ -246,4 +246,14 @@ a:hover {
 .fa:hover {
     transform: scale(1.2);
     cursor: pointer;
+}
+
+/* CSS FOR ANIMATED TEXT P  */
+.p_animated {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.p_animated.show {
+    opacity: 1;
 }

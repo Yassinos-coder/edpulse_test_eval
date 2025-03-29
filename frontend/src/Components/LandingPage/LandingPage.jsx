@@ -9,6 +9,7 @@ import FormModal from '../../utils/FormModel';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
 import StyledAlert from '../../utils/StyledAlert';
+import AnimatedText from '../../utils/AnimatedText';
 
 
 function LandingPage() {
@@ -106,7 +107,7 @@ function LandingPage() {
             {/* Section 2 */}
             <div id="whychooseus">
                 <h1 style={{ textAlign: 'center' }}>Why Choose Us?</h1>
-                <p style={{ textAlign: 'center' }}>Our instructors are highly qualified and experienced in teaching english.</p>
+                <AnimatedText text="Our instructors are highly qualified and experienced in teaching English." delay={200} />
                 <div id='strongPoints'>
                     <div id='card'>
                         <MdStars color='#295c8a' size={80} />
