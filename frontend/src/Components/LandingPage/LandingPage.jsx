@@ -136,20 +136,48 @@ function LandingPage() {
                     {submitResponse === 'success' && <p id='formSubmittionSuccess'>Form submitted successfully</p>}
                     {submitResponse === 'failed' && <p id='formSubmittionFailed'>Form submission failed</p>}
                     <div id="partOne">
-                        <input type="text" className="inputs" placeholder='Firstname' required onChange={(e) => setNewForm({ ...newForm, firstname: e.target.value })} />
-                        <input type="text" className="inputs" placeholder='Lastname' required onChange={(e) => setNewForm({ ...newForm, lastname: e.target.value })} />
-
+                        <input
+                            type="text"
+                            className="inputs"
+                            placeholder="Firstname"
+                            required
+                            autoComplete="given-name"
+                            onChange={(e) => setNewForm({ ...newForm, firstname: e.target.value })}
+                        />
+                        <input
+                            type="text"
+                            className="inputs"
+                            placeholder="Lastname"
+                            required
+                            autoComplete="family-name"
+                            onChange={(e) => setNewForm({ ...newForm, lastname: e.target.value })}
+                        />
                     </div>
-                    <input type="text" className="inputs blockInputs" placeholder='E-mail' required onChange={(e) => setNewForm({ ...newForm, email: e.target.value })} />
-                    <input type="text" className="inputs blockInputs" placeholder='Phone number' required onChange={(e) => setNewForm({ ...newForm, phonenumber: e.target.value })} />
+                    <input
+                        type="email"  // Changed type to email for better processing
+                        className="inputs blockInputs"
+                        placeholder="E-mail"
+                        required
+                        autoComplete="email"
+                        onChange={(e) => setNewForm({ ...newForm, email: e.target.value })}
+                    />
+                    <input
+                        type="tel"  // Changed type to tel for better processing
+                        className="inputs blockInputs"
+                        placeholder="Phone number"
+                        required
+                        autoComplete="tel"
+                        onChange={(e) => setNewForm({ ...newForm, phonenumber: e.target.value })}
+                    />
                     <button
-                        id='submitBtn'
+                        id="submitBtn"
                         onClick={SendFormData}
                         disabled={!isFormValid()}
                         style={{ backgroundColor: isFormValid() ? "#2D89FF" : "grey", cursor: isFormValid() ? "pointer" : "not-allowed" }}
                     >
                         Submit form
-                    </button>                </div>
+                    </button>
+                </div>
             </div>
             {/* Section 4 */}
             <div id="footer">
