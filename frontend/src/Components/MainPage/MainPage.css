@@ -1,0 +1,191 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* HEADER CSS */
+#pageHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2D89FF;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#pageHeaderPartOne {
+    padding-left: 50px;
+}
+
+#pageHeaderPartOne>p {
+    font-size: 2.5rem;
+    color: white;
+}
+
+#pageHeaderPartTwo {
+    display: flex;
+    gap: 20px;
+    padding-right: 50px;
+}
+
+#pageHeaderPartTwo>button {
+    background-color: #FFC107;
+    color: #333333;
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#pageHeaderPartTwo>button:hover {
+    cursor: pointer;
+    background-color: #E0A800;
+}
+
+#bodyContainer {
+    margin-top: 100px;
+    padding-top: 80px;
+}
+
+/* Section 1 CSS */
+#quoteContainer {
+    margin-top: 150px;
+}
+
+#quote {
+    text-align: center;
+    width: 500px;
+    font-size: 1.5rem;
+}
+
+#cards {
+    gap: 150px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Section 2 CSS */
+#signupForm {
+    background: url(/src/assets/images/photo4.jpg);
+    background-repeat: no-repeat;
+    min-height: 780px;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+}
+
+#formContainer {
+    background-color: #f1f7fe;
+    position: relative;
+    top: 150px;
+    width: 500px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+    border-radius: 10px;
+}
+
+#formSubmittionSucces {
+    color: green;
+    background-color: rgba(0, 128, 0, 0.267);
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+}
+
+#formSubmittionfailed {
+    color: red;
+    background-color: rgba(128, 0, 0, 0.267);
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+}
+
+#partOne {
+    display: flex;
+    gap: 20px;
+}
+
+.inputs {
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    padding-left: 20px;
+}
+
+.blockInputs {
+    display: block;
+    width: 440px;
+}
+
+#submitBtn {
+    background-color: #2D89FF;
+    color: white;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+}
+
+#submitBtn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Section 3 CSS */
+#aboutUsSection {
+    display: flex;
+    justify-content: center;
+    background-color: #f1f7fe;
+    height: 500px;
+}
+
+#intro {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#titleParagraph {
+    padding-right: 150px;
+}
+
+#introParagraph {
+    width: 600px;
+}
+
+#followus>h1 {
+    text-align: center;
+}
+
+#socials {
+    display: flex;
+    gap: 20px;
+}
+
+.fa:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.hrDivider {
+    margin-top: 250px;
+    margin-bottom: 50px;
+    width: 900px;
+}
