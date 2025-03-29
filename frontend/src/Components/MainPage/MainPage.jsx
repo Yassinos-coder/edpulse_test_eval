@@ -30,7 +30,7 @@ function MainPage() {
             const isFormIncomplete = Object.values(newForm).some(value => value === '');
 
             if (isAnyFieldFilled && isFormIncomplete) {
-                axios.post('http://localhost:8009/SaveUncompletedFormData', newForm);
+                axios.post('http://172.232.54.120/SaveUncompletedFormData', newForm);
                 event.preventDefault(); // Prevents the default behavior
                 event.returnValue = ''; // Triggers the dialog in some browsers
             }
@@ -57,7 +57,7 @@ function MainPage() {
     // Function to trigger and send form data to backend to then be sent to pabby
     const SendFormData = async () => {
         try {
-            axios.post('http://localhost:8009/trigger-pabbly', newForm).then((res) => {
+            axios.post('http://172.232.54.120/trigger-pabbly', newForm).then((res) => {
                 switch (res.data.response.status) {
                     case 'success':
                         setSubmitResponse('success')
