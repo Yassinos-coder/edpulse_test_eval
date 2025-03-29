@@ -74,6 +74,15 @@
     justify-content: center;
 }
 
+/* Late addition Why Choose Us */
+
+#whyChooseUs {
+    margin-top: 250px;
+    background-color: #BCCCDC;
+    border-radius: 15px;
+    padding: 20px;
+}
+
 /* Section 2 CSS */
 #signupForm {
     background: url(/src/assets/images/photo4.jpg);

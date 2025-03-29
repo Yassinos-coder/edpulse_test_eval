@@ -95,7 +95,7 @@ function MainPage() {
                                 <Card.Title style={{ marginTop: '15px', textAlign: 'center' }}>
                                     {index === 0 ? "Learn Anytime, Anywhere!" : index === 1 ? "Engaging & Interactive!" : "Boost Your Skills Today!"}
                                 </Card.Title>
-                                <Card.Text style={{ paddingLeft: '10px' }}>
+                                <Card.Text style={{ padding: '15px' }}>
                                     {index === 0 ? "Access quality education at your convenience with interactive courses and flexible schedules."
                                         : index === 1 ? "Experience learning with videos, quizzes, and hands-on activities tailored for you."
                                             : "Take your knowledge to the next level with expert-led courses and real-world applications."}
@@ -104,6 +104,18 @@ function MainPage() {
                         </Card>
                     ))}
                 </div>
+                <div id="whyChooseUs">
+                    <h1 style={{ textAlign: 'center' }}>Why Choose EduHost?</h1>
+                    <ul>
+                        <li><strong>✅ Expert-Crafted Courses</strong> – Our programs are developed by <strong>certified instructors</strong> using modern teaching methods based on <strong>immersion, active practice, and AI-powered tools</strong> for faster progress.</li>
+                        <li><strong>✅ Total Flexibility</strong> – Learn <strong>at your own pace, anytime, anywhere</strong>! Our courses are available <strong>24/7</strong> on desktop, tablet, and mobile.</li>
+                        <li><strong>✅ Unbeatable Prices</strong> – We believe that education should be <strong>accessible to everyone</strong>. That’s why our courses are among the most <strong>affordable</strong> on the market, with <strong>customized plans</strong> to fit your needs and budget.</li>
+                        <li><strong>✅ Interactive & Immersive Learning</strong> – Engage with <strong>practical exercises, dynamic video lessons, conversation sessions with native speakers, quizzes, and real-world scenarios</strong> to make learning <strong>effective and enjoyable</strong>.</li>
+                        <li><strong>✅ Recognized Certifications</strong> – Upon completion, receive an <strong>official certificate</strong> to enhance your resume and unlock new career opportunities.</li>
+                    </ul>
+                    <p style={{ textAlign: 'center' }}>🌍 <strong>Join EduHost today and take your English skills to the next level!</strong></p>
+                </div>
+
                 <hr className='hrDivider' />
                 <div id="signupForm" ref={signupFormRef}>
                     <div id='formContainer'>
@@ -128,7 +140,7 @@ function MainPage() {
                 <div id="aboutUsSection" ref={aboutUsSectionRef}>
                     <div id='intro'>
                         <h1>EduHost </h1>
-                        <p style={{textAlign:'center'}}> At EduHost, we redefine online learning by offering top-tier English courses designed by expert linguists and tailored to all proficiency levels.
+                        <p style={{ textAlign: 'center' }}> At EduHost, we redefine online learning by offering top-tier English courses designed by expert linguists and tailored to all proficiency levels.
                             <br />Whether you’re a beginner or an advanced learner, our interactive training  helps you improve your listening, speaking, reading, and writing skills, all while benefiting from personalized guidance.</p>
                         <h1> Follow Us!</h1>
                         <div id='socials'>
