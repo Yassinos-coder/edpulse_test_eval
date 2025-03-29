@@ -158,8 +158,10 @@
 
 #intro {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 #titleParagraph {
