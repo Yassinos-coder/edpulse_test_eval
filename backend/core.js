@@ -12,13 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-const pabblyWebhookUrl = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY5MDYzMTA0M2Q1MjY1NTUzZDUxMzYi_pc'
-const pabblyWebhookUrl2 = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY5MDYzZTA0MzQ1MjZlNTUzNDUxMzAi_pc'
+const pabblyWebhookUrl = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY5MDYzMTA0M2Q1MjY1NTUzZDUxMzYi_pc';
+const pabblyWebhookUrl2 = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY5MDYzZTA0MzQ1MjZlNTUzNDUxMzAi_pc';
 
-// Get res to root url
+// Root route - Displays a simple HTML message
 app.get('/', (req, res) => {
-    // Send HTML response with message in red and bold
-    res.send(`
+  res.send(`
       <!DOCTYPE html>
       <html>
         <head>
@@ -34,60 +33,56 @@ app.get('/', (req, res) => {
         </body>
       </html>
     `);
-  });
+});
 
-// Route to trigger the Pabbly webhook
+// Route to trigger the first Pabbly webhook
 app.post('/trigger-pabbly', async (req, res) => {
-    console.log(req.body); // This should now log the parsed form data
-    // data being sent to pabbly
-    const dataToSend = {
+  console.log(req.body); // Logs incoming form data
 
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        phonenumber: req.body.phonenumber,
-    };
+  const dataToSend = {
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    phonenumber: req.body.phonenumber,
+  };
 
-    try {
-        // Make a POST request to the Pabbly webhook URL
-        const response = await axios.post(pabblyWebhookUrl, dataToSend);
+  try {
+    // Sends form data to Pabbly webhook
+    const response = await axios.post(pabblyWebhookUrl, dataToSend);
 
-        // Respond to the frontend with success
-        res.status(200).json({ message: 'Webhook triggered successfully', response: response.data });
-    } catch (error) {
-        // Handle errors
-        console.error('Error triggering webhook:', error);
-        res.status(500).json({ message: 'Failed to trigger webhook', error: error.message });
-    }
+    // Responds to the client with success message
+    res.status(200).json({ message: 'Webhook triggered successfully', response: response.data });
+  } catch (error) {
+    console.error('Error triggering webhook:', error);
+    res.status(500).json({ message: 'Failed to trigger webhook', error: error.message });
+  }
 });
 
-// Route to trigger the Pabbly webhook
+// Route to save incomplete form data to Pabbly webhook
 app.post('/SaveUncompletedFormData', async (req, res) => {
-    console.log(req.body); // This should now log the parsed form data
-    // data being sent to pabbly
-    const dataToSend = {
+  console.log(req.body); // Logs incoming incomplete form data
 
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        phonenumber: req.body.phonenumber,
-        uncomplete: 'uncomplete'
-    };
+  const dataToSend = {
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    phonenumber: req.body.phonenumber,
+    uncomplete: 'uncomplete', // Marks the data as incomplete
+  };
 
-    try {
-        // Make a POST request to the Pabbly webhook URL
-        const response = await axios.post(pabblyWebhookUrl2, dataToSend);
+  try {
+    // Sends incomplete form data to Pabbly webhook
+    const response = await axios.post(pabblyWebhookUrl2, dataToSend);
 
-        // Respond to the frontend with success
-        res.status(200).json({ message: 'Webhook triggered successfully', response: response.data });
-    } catch (error) {
-        // Handle errors
-        console.error('Error triggering webhook:', error);
-        res.status(500).json({ message: 'Failed to trigger webhook', error: error.message });
-    }
+    // Responds to the client with success message
+    res.status(200).json({ message: 'Webhook triggered successfully', response: response.data });
+  } catch (error) {
+    console.error('Error triggering webhook:', error);
+    res.status(500).json({ message: 'Failed to trigger webhook', error: error.message });
+  }
 });
 
-// Start the server
+// Starts the server on the defined port
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

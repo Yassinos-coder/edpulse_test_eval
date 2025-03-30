@@ -11,12 +11,12 @@ import { FaSquareXTwitter } from 'react-icons/fa6';
 import StyledAlert from '../../utils/StyledAlert';
 import AnimatedText from '../../utils/AnimatedText';
 
-
 function LandingPage() {
-
+    // State to manage form data and submission response
     const [newForm, setNewForm] = useState(new FormModal());
     const [submitResponse, setSubmitResponse] = useState('unknown');
 
+    // Effect to send incomplete form data before the user leaves the page
     useEffect(() => {
         const sendFormDataUncomplete = (event) => {
             const isAnyFieldFilled = Object.values(newForm).some(value => value !== '');
@@ -35,6 +35,7 @@ function LandingPage() {
         };
     }, [newForm]);
 
+    // Function to smoothly scroll to a section of the page
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
         if (section) {
@@ -42,6 +43,7 @@ function LandingPage() {
         }
     };
 
+    // Function to send form data to the backend API
     const SendFormData = async () => {
         try {
             axios.post('https://api.yassinoscoder.com/trigger-pabbly', newForm).then((res) => {
@@ -64,6 +66,7 @@ function LandingPage() {
         }
     };
 
+    // Function to validate the form fields before submission
     const isFormValid = () => {
         return (
             newForm.firstname?.trim() !== '' &&
@@ -77,8 +80,8 @@ function LandingPage() {
         <div id='mainContainer'>
             <StyledAlert status={submitResponse} />
 
+            {/* Header Section */}
             <div id="headerContainer">
-
                 <header id='header'>
                     <p>Learn English Online</p>
                     <nav>
@@ -93,9 +96,7 @@ function LandingPage() {
                 <div id='headerContainerMiddle'>
                     <div id='headerContainerMiddle-leftSide'>
                         <p id='title'>Learn English Online</p>
-                        <p>Improve your English kills with our <br />
-                            online courses and experienced instructors.
-                        </p>
+                        <p>Improve your English skills with our online courses and experienced instructors.</p>
                         <button onClick={() => scrollToSection('contactusForm')}>Get Started</button>
                     </div>
                     <div>
@@ -104,7 +105,8 @@ function LandingPage() {
                     </div>
                 </div>
             </div>
-            {/* Section 2 */}
+
+            {/* Why Choose Us Section */}
             <div id="whychooseus">
                 <h1 style={{ textAlign: 'center' }}>Why Choose Us?</h1>
                 <AnimatedText text="Our instructors are highly qualified and experienced in teaching English." delay={200} />
@@ -112,88 +114,46 @@ function LandingPage() {
                     <div id='card'>
                         <MdStars color='#295c8a' size={80} />
                         <p id='cardTitle'>Expert Teachers</p>
-                        <p>Our instructors are highly qualified and experienced in teaching english.</p>
+                        <p>Our instructors are highly qualified and experienced in teaching English.</p>
                     </div>
                     <div id='card'>
                         <MdOutlineSmartDisplay color='#295c8a' size={80} />
-                        <p id='cardTitle'>Expert Teachers</p>
+                        <p id='cardTitle'>Interactive Lessons</p>
                         <p>Engaging and interactive lessons to help you learn effectively.</p>
                     </div>
                     <div id='card'>
                         <MdCalendarMonth color='#295c8a' size={80} />
-                        <p id='cardTitle'>Expert Teachers</p>
+                        <p id='cardTitle'>Flexible Schedule</p>
                         <p>Learn at your pace, with our flexible scheduling options.</p>
                     </div>
                 </div>
             </div>
-            {/* Section 3 */}
+
+            {/* Contact Us Form Section */}
             <div id='contactusForm'>
                 <h1 style={{ textAlign: 'center' }}>Explore Our Courses</h1>
-                <p style={{ textAlign: 'center' }}>We offer a wide range of english courses, tailored for beginners, advanced and experts seeking to improve their english.
-                    In of these categories? contact us through the form below and we'll reach it out to setup our account!
-                </p>
+                <p style={{ textAlign: 'center' }}>We offer a wide range of English courses for all levels. Fill out the form below to get started.</p>
                 <div id='formContainer'>
                     {submitResponse === 'success' && <p id='formSubmittionSuccess'>Form submitted successfully</p>}
                     {submitResponse === 'failed' && <p id='formSubmittionFailed'>Form submission failed</p>}
-                    <div id="partOne">
-                        <input
-                            type="text"
-                            className="inputs"
-                            placeholder="Firstname"
-                            required
-                            autoComplete="given-name"
-                            onChange={(e) => setNewForm({ ...newForm, firstname: e.target.value })}
-                        />
-                        <input
-                            type="text"
-                            className="inputs"
-                            placeholder="Lastname"
-                            required
-                            autoComplete="family-name"
-                            onChange={(e) => setNewForm({ ...newForm, lastname: e.target.value })}
-                        />
-                    </div>
-                    <input
-                        type="email"  // Changed type to email for better processing
-                        className="inputs blockInputs"
-                        placeholder="E-mail"
-                        required
-                        autoComplete="email"
-                        onChange={(e) => setNewForm({ ...newForm, email: e.target.value })}
-                    />
-                    <input
-                        type="tel"  // Changed type to tel for better processing
-                        className="inputs blockInputs"
-                        placeholder="Phone number"
-                        required
-                        autoComplete="tel"
-                        onChange={(e) => setNewForm({ ...newForm, phonenumber: e.target.value })}
-                    />
-                    <button
-                        id="submitBtn"
-                        onClick={SendFormData}
-                        disabled={!isFormValid()}
-                        style={{ backgroundColor: isFormValid() ? "#2D89FF" : "grey", cursor: isFormValid() ? "pointer" : "not-allowed" }}
-                    >
-                        Submit form
-                    </button>
+                    <input type="text" className="inputs" placeholder="Firstname" required autoComplete="given-name" onChange={(e) => setNewForm({ ...newForm, firstname: e.target.value })} />
+                    <input type="text" className="inputs" placeholder="Lastname" required autoComplete="family-name" onChange={(e) => setNewForm({ ...newForm, lastname: e.target.value })} />
+                    <button id="submitBtn" onClick={SendFormData} disabled={!isFormValid()} style={{ backgroundColor: isFormValid() ? "#2D89FF" : "grey" }}>Submit form</button>
                 </div>
             </div>
-            {/* Section 4 */}
+
+            {/* Footer Section */}
             <div id="footer">
                 <h2 style={{ textAlign: 'center' }}>About Us | EduHost!</h2>
-                <p style={{ width: '80%', textAlign: 'center' }}>
-                    We are dedicated to helping learners improve their English skills with high-quality courses designed by expert instructors. Whether you're a beginner or an advanced learner, our platform provides engaging lessons, interactive exercises, and personalized learning experiences.</p>
                 <h2>Follow Us!</h2>
                 <div id='socials'>
-                    <FaLinkedin size="40" className='fa' style={{ color: '#0077B5' }} />
-                    <FaInstagram size="40" className='fa' style={{ color: '#E1306C' }} />
-                    <FaSquareXTwitter size="40" className='fa' style={{ color: '#1DA1F2' }} />
+                    <FaLinkedin size="40" style={{ color: '#0077B5' }} />
+                    <FaInstagram size="40" style={{ color: '#E1306C' }} />
+                    <FaSquareXTwitter size="40" style={{ color: '#1DA1F2' }} />
                 </div>
             </div>
         </div>
-    )
-
+    );
 }
 
-export default LandingPage
+export default LandingPage;
