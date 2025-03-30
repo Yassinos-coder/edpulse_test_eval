@@ -15,6 +15,26 @@ app.use(express.json());
 const pabblyWebhookUrl = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY5MDYzMTA0M2Q1MjY1NTUzZDUxMzYi_pc'
 const pabblyWebhookUrl2 = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY5MDYzZTA0MzQ1MjZlNTUzNDUxMzAi_pc'
 
+// Get res to root url
+app.get('/', (req, res) => {
+    // Send HTML response with message in red and bold
+    res.send(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <style>
+            .red-bold {
+              color: red;
+              font-weight: bold;
+            }
+          </style>
+        </head>
+        <body>
+          <p class="red-bold">Get out of here</p>
+        </body>
+      </html>
+    `);
+  });
 
 // Route to trigger the Pabbly webhook
 app.post('/trigger-pabbly', async (req, res) => {
